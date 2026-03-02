@@ -54,9 +54,13 @@ export const Canvas = forwardRef<HTMLDivElement, CanvasProps>(({
            {logoUrl ? (
              <img src={logoUrl} alt="Logo" className="h-12 w-auto object-contain" />
            ) : (
-             <div className="flex items-center gap-2 opacity-80">
-                <IconDisplay name="Radar" className="w-6 h-6" color={theme.accentColor} />
-                <span className="font-bold text-lg tracking-wider">رادار المستثمر</span>
+             <div className="flex items-center gap-4 opacity-95 drop-shadow-md">
+                <IconDisplay name="TrendingUp" className="w-8 h-8" color={theme.accentColor} />
+                <div className="flex items-center gap-3">
+                  <span className="font-extrabold text-2xl tracking-tight" style={{ color: theme.textColor }}>المستثمر</span>
+                  <div className="w-px h-6 opacity-30" style={{ backgroundColor: theme.accentColor }}></div>
+                  <span className="font-bold text-xs tracking-widest uppercase opacity-70" style={{ color: theme.textColor }}>AL-INVESTOR</span>
+                </div>
              </div>
            )}
         </div>
@@ -72,7 +76,7 @@ export const Canvas = forwardRef<HTMLDivElement, CanvasProps>(({
             
             {/* Image Container */}
             {/* Changed structure: Wrapper allows icon to overflow without being clipped by rounded corners of image */}
-            <div className="relative w-full aspect-[4/3] mb-10 group">
+            <div className="relative w-full aspect-[4/3] mb-8 group">
                 <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-lg z-0">
                     <img 
                         src={slide.imageUrl} 
@@ -111,7 +115,7 @@ export const Canvas = forwardRef<HTMLDivElement, CanvasProps>(({
         </div>
 
         {/* Carousel Indicators & Footer */}
-        <div className="pb-8 pt-4 w-full flex flex-col items-center justify-center gap-4 relative z-10">
+        <div className="pb-12 pt-4 w-full flex flex-col items-center justify-center gap-4 relative z-10">
             
             {/* Dots */}
             <div className="flex items-center gap-2">

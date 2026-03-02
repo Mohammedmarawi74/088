@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { Canvas } from './components/Canvas';
 import { IconDisplay } from './components/IconDisplay';
-import { AppState, PRESET_THEMES, Slide, AVAILABLE_ICONS } from './types';
+import { AppState, PRESET_THEMES, Slide, AVAILABLE_ICONS, PRESET_LOGOS } from './types';
 
 const INITIAL_SLIDES: Slide[] = [
   {
@@ -309,6 +309,27 @@ export default function App() {
                <div className="space-y-6 animate-fadeIn">
                  <div className="space-y-2">
                    <label className="text-sm font-semibold text-gray-700 block">شعار المنصة (Logo)</label>
+                   
+                   <div className="mb-4">
+                     <p className="text-xs text-gray-500 mb-2">اختر شعاراً من القائمة الجاهزة:</p>
+                     <div className="grid grid-cols-4 gap-2 pb-2">
+                       {PRESET_LOGOS.map((logo) => (
+                         <button
+                           key={logo.id}
+                           onClick={() => setState(prev => ({ ...prev, logoUrl: logo.url }))}
+                           className={`aspect-square rounded-md border-2 overflow-hidden bg-white p-1 transition-all ${state.logoUrl === logo.url ? 'border-indigo-600 ring-2 ring-indigo-200' : 'border-gray-200 hover:border-gray-300'}`}
+                         >
+                           <img src={logo.url} alt={logo.name} className="w-full h-full object-contain bg-slate-100/50" />
+                         </button>
+                       ))}
+                     </div>
+                     <div className="flex items-center">
+                       <div className="flex-grow border-t border-gray-200"></div>
+                       <span className="flex-shrink-0 mx-4 text-gray-400 text-xs text-center">أو</span>
+                       <div className="flex-grow border-t border-gray-200"></div>
+                     </div>
+                   </div>
+
                    <div className="flex items-center gap-4">
                      <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden border border-gray-200">
                        {state.logoUrl ? (
