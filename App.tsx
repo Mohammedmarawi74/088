@@ -287,7 +287,14 @@ export default function App() {
                         onClick={() => setState(prev => ({ ...prev, theme }))}
                         className={`p-3 rounded-lg border flex items-center gap-3 transition-all ${state.theme.id === theme.id ? 'ring-2 ring-indigo-500 border-transparent' : 'border-gray-200 hover:border-gray-300'}`}
                       >
-                         <div className="w-8 h-8 rounded-full shadow-sm" style={{ backgroundColor: theme.backgroundColor, border: `2px solid ${theme.accentColor}` }}></div>
+                         <div 
+                           className="w-10 h-10 rounded-full shadow-md border-2" 
+                           style={{ 
+                             backgroundColor: theme.backgroundColor, 
+                             backgroundImage: theme.gradient || 'none',
+                             borderColor: theme.accentColor 
+                           }}
+                         ></div>
                          <div className="text-right flex-1">
                            <div className="text-sm font-medium text-gray-800">{theme.name}</div>
                          </div>
